@@ -108,7 +108,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search by look, feature or place name"
+                  placeholder="Search by look, feature or place"
                   className="min-w-0 flex-1 bg-transparent py-1.5 text-[16px] outline-none placeholder:text-muted/70"
                   aria-label="Search locations"
                 />
@@ -124,7 +124,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
                   onClick={() =>
                     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
                   }
-                  className="shrink-0 text-[12px] font-medium uppercase tracking-[0.12em] text-ink transition-colors hover:text-accent"
+                  className="hidden shrink-0 text-[12px] font-medium uppercase tracking-[0.12em] text-ink transition-colors hover:text-accent sm:block"
                 >
                   Search
                 </button>
