@@ -1,7 +1,10 @@
 # Malta Locations — MVP Build Doc
 
 **Working title:** Malta Locations (film & photo shoot locations directory)
-**Status:** hour-one build
+**Status:** ✅ live — hour-one build shipped
+**Live:** https://malta-locations.vercel.app
+**Repo:** https://github.com/Own5795/malta-locations
+**Local:** `npm run dev` → http://localhost:3000 (LAN: http://10.70.1.154:3000)
 **Source spec:** `malta-film-photo-locations-directory-mvp.md` (42 sections, full product vision)
 **This doc:** what we actually build first, and why the rest waits.
 
@@ -242,9 +245,68 @@ entire point of spending an hour instead of a quarter.
 
 ---
 
-## 10. Open decisions
+## 10. What shipped
 
-- Where do enquiries land? (email address for the agent)
-- Standalone domain, or does this eventually live at `/locations` on the parent
-  production-services site? Affects branding now, cross-sell later.
-- Brand name and tone: neutral utility index, or branded under the existing business?
+30 seed locations across Malta, Gozo and Comino — each with real coordinates,
+production-focused copy answering "what brief does this solve?", CC-licensed
+Wikimedia imagery with credits, access/permission status, and practical notes
+(vehicle access, parking, best light, foot traffic, drone, crew).
+
+Spread: cliffs & coast, historic streets (Mdina, Valletta), forts (Ricasoli,
+St Angelo, Cittadella), harbours, a windmill, salt pans, quarries, caves and
+gorges, beaches and coves, derelict/industrial, farmland, one standing film set,
+plus a modern-urban option.
+
+| Built | Notes |
+|---|---|
+| Weighted search + synonyms | Title 10 / category 8 / keyword 7 / tag 6 / description 3, per spec §34. Maps production language onto the index: "abandoned looking building", "middle eastern", "southern italy", "desert-like" all resolve |
+| Zero-result screen | Full-width capture module + nearest-neighbour suggestions. Never dead-ends |
+| Filters | Category chips (with counts), island, setting/look. Three facets, not forty |
+| Map | Leaflet + Carto light tiles, card-hover ⇄ marker highlight, filters drive markers, popups link through |
+| Detail pages | 5-image gallery, production details table, access/permission block, map, related locations, sticky enquiry form |
+| Forms | Location enquiry, general brief, owner submission — all with cross-sell checkboxes and a honeypot |
+| Tracking | Every search term, zero-result, filter, card click, marker click, form start and submit |
+| SEO | Per-listing metadata, Place + ItemList JSON-LD, sitemap, robots |
+
+### Reading the data
+
+Enquiries and events are one-line JSON in the platform log, tagged for grepping:
+
+```bash
+vercel logs malta-locations.vercel.app | grep ENQUIRY   # leads
+vercel logs malta-locations.vercel.app | grep location_zero_results   # what to source next
+```
+
+To switch on email delivery — no code change needed, the route is already wired:
+
+```bash
+vercel env add RESEND_API_KEY production   # from resend.com
+vercel env add ENQUIRY_TO production       # the agent's inbox
+vercel deploy --prod
+```
+
+---
+
+## 11. Still open
+
+- **Enquiry destination.** Currently log-only. Two env vars turn on email (above).
+- **Domain.** On `malta-locations.vercel.app`. A real domain matters before this
+  goes into WhatsApp groups — a `.vercel.app` link reads as a side project, which
+  will depress the very response rate you're trying to measure.
+- **Parent business.** Built neutral by choice. Whether it eventually lives at
+  `/locations` on the production-services site changes the cross-sell design.
+- **Imagery.** Wikimedia is correctly licensed and credited, but it's tourist
+  photography, not location photography — no access shots, no opposite angles, no
+  approach. Replacing it on the top ~10 listings is the single highest-leverage
+  content upgrade, and the one thing a competitor can't copy.
+
+---
+
+## 12. The honest caveat
+
+30 listings is enough to *look* real and nowhere near enough to *be* useful. That
+is the intended state: it makes the zero-result path the main event, and that path
+is instrumented precisely because the gap between what people search for and what
+the index holds is the finding. Do not fill the index from intuition before the
+search log has told you what's missing — that log is the entire return on this
+hour.

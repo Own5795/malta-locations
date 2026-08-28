@@ -8,3 +8,4 @@ next-env.d.ts
 scripts/images.json
 scripts/images.log
 scripts/images2.log
+.env*

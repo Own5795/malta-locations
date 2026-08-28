@@ -39,7 +39,7 @@ export async function generateMetadata({
   const title = `${loc.title} Film & Photography Location | Malta`;
   const description = `Explore ${loc.title} in ${loc.locality} as a film and photography location. Photos, production notes, access information and location enquiry.`;
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: `/locations/${loc.slug}` },
     openGraph: { title, description, images: [loc.images[0].url] },
