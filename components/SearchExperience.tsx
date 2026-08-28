@@ -79,8 +79,8 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
     <>
       {/* ---------------- Hero ---------------- */}
       <section className="border-b border-line">
-        <div className="grid items-center lg:grid-cols-[1.02fr_1fr]">
-          <div className="px-5 pb-9 pt-12 sm:px-8 lg:py-16 lg:pl-[max(2rem,calc((100vw-1400px)/2+2rem))] lg:pr-14">
+        <div className="grid items-stretch lg:min-h-[480px] lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1fr)]">
+          <div className="flex min-w-0 flex-col justify-center px-5 pb-9 pt-12 sm:px-8 lg:py-16 lg:pl-[max(2rem,calc((100vw-1400px)/2+2rem))] lg:pr-14">
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
               Malta · Gozo · Comino
             </p>
@@ -148,7 +148,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
           </div>
 
           {/* One photograph, cropped wide and bled to the edge — not an image slot */}
-          <div className="relative hidden aspect-[16/10] overflow-hidden bg-paper-2 lg:block">
+          <div className="relative hidden min-w-0 overflow-hidden bg-paper-2 lg:block">
             <Image
               src={HERO.images[0].url}
               alt={HERO.images[0].alt}

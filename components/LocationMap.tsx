@@ -98,7 +98,13 @@ export default function LocationMap({
 
     if (fit && locs.length) {
       const b = L.latLngBounds(locs.map((l) => [l.lat, l.lng] as [number, number]));
-      m.fitBounds(b, { padding: [30, 30], maxZoom: 14 });
+      m.invalidateSize({ animate: false });
+      m.fitBounds(b, { padding: [24, 24], maxZoom: 14 });
+      // container height settles after layout; refit once it has
+      setTimeout(() => {
+        m.invalidateSize({ animate: false });
+        m.fitBounds(b, { padding: [24, 24], maxZoom: 14 });
+      }, 120);
     }
   }
 

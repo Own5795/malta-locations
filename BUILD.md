@@ -302,7 +302,29 @@ vercel deploy --prod
 
 ---
 
-## 12. The honest caveat
+## 12. Verification
+
+Three headless visual passes ran against the live build, because HTTP 200s and a
+green typecheck proved nothing about what the page looked like. They caught, in
+order:
+
+1. **A watermarked basemap.** CARTO now stamps "API KEY REQUIRED" diagonally
+   across unkeyed tiles. Tiles returned 200, Malta drew, markers worked — no
+   automated check would have flagged it. Swapped to keyless OSM, muted in CSS.
+2. **A gallery collapse I introduced.** `sm:aspect-auto` stripped the only thing
+   giving the grid rows height; every desktop gallery rendered as an 8px smear.
+   Typecheck passed, build passed, all routes 200. Now measured at 520/389/340px
+   across all 30 pages and all four span branches.
+3. **Design drift.** A bleached four-photo hero band with visible butt-joins, an
+   Airbnb-idiom search capsule, counted facet chips, and an access line repeated
+   identically on all 30 cards. All four reworked.
+
+The lesson worth keeping: for a visual product, "it builds and returns 200" is not
+evidence of anything a user would care about. Look at the page.
+
+---
+
+## 13. The honest caveat
 
 30 listings is enough to *look* real and nowhere near enough to *be* useful. That
 is the intended state: it makes the zero-result path the main event, and that path
