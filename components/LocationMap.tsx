@@ -37,6 +37,8 @@ export default function LocationMap({
         scrollWheelZoom: false,
         dragging: interactive,
         attributionControl: true,
+        zoomSnap: 0,
+        zoomDelta: 0.5,
       }).setView(
         locs.length === 1 ? [locs[0].lat, locs[0].lng] : [35.94, 14.37],
         locs.length === 1 ? 14 : 10,
@@ -99,12 +101,7 @@ export default function LocationMap({
     if (fit && locs.length) {
       const b = L.latLngBounds(locs.map((l) => [l.lat, l.lng] as [number, number]));
       m.invalidateSize({ animate: false });
-      m.fitBounds(b, { padding: [24, 24], maxZoom: 14 });
-      // container height settles after layout; refit once it has
-      setTimeout(() => {
-        m.invalidateSize({ animate: false });
-        m.fitBounds(b, { padding: [24, 24], maxZoom: 14 });
-      }, 120);
+      m.fitBounds(b, { padding: [18, 18], maxZoom: 14 });
     }
   }
 
