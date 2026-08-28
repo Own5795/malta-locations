@@ -19,10 +19,7 @@ const EXAMPLES = [
   "rugged coastline",
   "abandoned looking building",
   "old european street",
-  "desert-like landscape",
   "fishing village",
-  "quarry",
-  "remote field",
 ];
 
 const HERO = locations.find((l) => l.slug === "ta-cenc-cliffs") ?? locations[0];
@@ -82,8 +79,8 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
     <>
       {/* ---------------- Hero ---------------- */}
       <section className="border-b border-line">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-9 px-5 pb-9 pt-12 sm:px-8 lg:grid-cols-[1.06fr_1fr] lg:gap-14 lg:pb-12 lg:pt-16">
-          <div>
+        <div className="grid items-center lg:grid-cols-[1.02fr_1fr]">
+          <div className="px-5 pb-9 pt-12 sm:px-8 lg:py-16 lg:pl-[max(2rem,calc((100vw-1400px)/2+2rem))] lg:pr-14">
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
               Malta · Gozo · Comino
             </p>
@@ -111,7 +108,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder='"windmill", "rocky coastline", "abandoned building"'
+                  placeholder="Search by look, feature or place name"
                   className="min-w-0 flex-1 bg-transparent py-1.5 text-[16px] outline-none placeholder:text-muted/70"
                   aria-label="Search locations"
                 />
@@ -150,13 +147,13 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
             </div>
           </div>
 
-          {/* One photograph, committed to — not a bleached collage */}
-          <div className="relative hidden aspect-[5/4] overflow-hidden rounded-sm bg-paper-2 lg:block">
+          {/* One photograph, cropped wide and bled to the edge — not an image slot */}
+          <div className="relative hidden aspect-[16/10] overflow-hidden bg-paper-2 lg:block">
             <Image
               src={HERO.images[0].url}
               alt={HERO.images[0].alt}
               fill
-              sizes="45vw"
+              sizes="50vw"
               priority
               className="object-cover"
             />
@@ -177,7 +174,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
         <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper to-transparent" />
           <div className="no-scrollbar flex gap-1.5 overflow-x-auto py-3">
-            {FEATURED_CATEGORIES.slice(0, 12).map((c) => {
+            {FEATURED_CATEGORIES.slice(0, 10).map((c) => {
               const on = cats.includes(c.name);
               return (
                 <button
@@ -293,7 +290,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
 
             {showMap && (
               <div className="hidden w-[42%] shrink-0 lg:block">
-                <div className="sticky top-[124px] h-[calc(100vh-150px)] overflow-hidden rounded-sm border border-line">
+                <div className="sticky top-[124px] h-[min(calc(100vh-150px),620px)] overflow-hidden rounded-sm border border-line">
                   <LocationMap
                     locs={results}
                     activeSlug={active}

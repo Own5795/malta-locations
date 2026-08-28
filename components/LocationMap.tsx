@@ -98,7 +98,7 @@ export default function LocationMap({
 
     if (fit && locs.length) {
       const b = L.latLngBounds(locs.map((l) => [l.lat, l.lng] as [number, number]));
-      m.fitBounds(b, { padding: [46, 46], maxZoom: 13 });
+      m.fitBounds(b, { padding: [30, 30], maxZoom: 14 });
     }
   }
 
