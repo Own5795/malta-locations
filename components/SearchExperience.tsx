@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { locations, type Location } from "@/data/locations";
 import { searchLocations, suggestFor, FEATURED_CATEGORIES, ALL_LOOKS } from "@/lib/search";
@@ -23,6 +24,8 @@ const EXAMPLES = [
   "quarry",
   "remote field",
 ];
+
+const HERO = locations.find((l) => l.slug === "ta-cenc-cliffs") ?? locations[0];
 
 const ISLANDS = [
   { id: "malta", label: "Malta" },
@@ -78,87 +81,92 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
   return (
     <>
       {/* ---------------- Hero ---------------- */}
-      <section className="relative overflow-hidden border-b border-line">
-        <div className="pointer-events-none absolute inset-0 opacity-[0.09]">
-          <div className="grid h-full grid-cols-3 sm:grid-cols-5">
-            {locations.slice(0, 5).map((l) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={l.slug}
-                src={l.images[0].url}
-                alt=""
-                loading="eager"
-                fetchPriority="low"
-                className="h-full w-full object-cover"
-              />
-            ))}
-          </div>
-        </div>
-        <div className="relative mx-auto max-w-[1400px] px-5 pb-10 pt-14 sm:px-8 sm:pb-14 sm:pt-20">
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-            Malta · Gozo · Comino
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-[38px] leading-[1.04] tracking-tight sm:text-[58px]">
-            Find film &amp; photography locations across Malta
-          </h1>
-          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-2">
-            Coastlines, historic streets, forts, quarries, salt pans, fields and
-            derelict buildings — searchable by what you actually need, not by place
-            name.
-          </p>
+      <section className="border-b border-line">
+        <div className="mx-auto grid max-w-[1400px] items-center gap-9 px-5 pb-9 pt-12 sm:px-8 lg:grid-cols-[1.06fr_1fr] lg:gap-14 lg:pb-12 lg:pt-16">
+          <div>
+            <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
+              Malta · Gozo · Comino
+            </p>
+            <h1 className="mt-3 text-balance font-display text-[38px] leading-[1.03] tracking-tight sm:text-[52px]">
+              Find film &amp; photography locations across Malta
+            </h1>
+            <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-ink-2">
+              Coastlines, historic streets, forts, quarries, salt pans, fields and
+              derelict buildings — searchable by what you actually need, not by place
+              name.
+            </p>
 
-          <div className="mt-7 max-w-2xl">
-            <div className="flex items-center gap-2 rounded-full border border-ink/15 bg-paper px-2 py-2 shadow-[0_2px_20px_rgba(0,0,0,0.05)] transition-shadow focus-within:border-ink/40 focus-within:shadow-[0_4px_28px_rgba(0,0,0,0.09)]">
-              <svg
-                viewBox="0 0 24 24"
-                className="ml-3 h-4 w-4 shrink-0 text-muted"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-              </svg>
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder='Try "windmill", "rocky coastline" or "abandoned building"'
-                className="min-w-0 flex-1 bg-transparent py-2 text-[15px] outline-none placeholder:text-muted/80"
-                aria-label="Search locations"
-              />
-              {query && (
-                <button
-                  onClick={() => setQuery("")}
-                  className="px-2 text-[12px] text-muted hover:text-ink"
-                  aria-label="Clear search"
+            <div className="mt-7 max-w-xl">
+              <div className="flex items-center gap-3 border-b border-ink/25 pb-2 transition-colors focus-within:border-ink">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-4 w-4 shrink-0 text-muted"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
                 >
-                  Clear
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder='"windmill", "rocky coastline", "abandoned building"'
+                  className="min-w-0 flex-1 bg-transparent py-1.5 text-[16px] outline-none placeholder:text-muted/70"
+                  aria-label="Search locations"
+                />
+                {query ? (
+                  <button
+                    onClick={() => setQuery("")}
+                    className="shrink-0 text-[12px] text-muted transition-colors hover:text-ink"
+                  >
+                    Clear
+                  </button>
+                ) : null}
+                <button
+                  onClick={() =>
+                    resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                  className="shrink-0 text-[12px] font-medium uppercase tracking-[0.12em] text-ink transition-colors hover:text-accent"
+                >
+                  Search
                 </button>
-              )}
-              <button
-                onClick={() => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                className="shrink-0 rounded-full bg-ink px-5 py-2.5 text-[13px] font-medium text-paper transition-colors hover:bg-accent"
-              >
-                Search
-              </button>
+              </div>
+
+              <div className="no-scrollbar mt-4 flex gap-1.5 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible">
+                {EXAMPLES.map((e) => (
+                  <button
+                    key={e}
+                    onClick={() => {
+                      setQuery(e);
+                      track("example_search_clicked", { query: e });
+                    }}
+                    className="shrink-0 rounded-full border border-line px-3 py-1.5 text-[12px] text-ink-2 transition-colors hover:border-ink/35 hover:bg-paper-2"
+                  >
+                    {e}
+                  </button>
+                ))}
+              </div>
             </div>
+          </div>
 
-            <div className="no-scrollbar mt-3 flex gap-1.5 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible">
-              <span className="shrink-0 py-1.5 text-[11px] uppercase tracking-[0.1em] text-muted">
-                Try
-              </span>
-              {EXAMPLES.map((e) => (
-                <button
-                  key={e}
-                  onClick={() => {
-                    setQuery(e);
-                    track("example_search_clicked", { query: e });
-                  }}
-                  className="shrink-0 rounded-full border border-line px-3 py-1.5 text-[12px] text-ink-2 transition-colors hover:border-ink/35 hover:bg-paper-2"
-                >
-                  {e}
-                </button>
-              ))}
+          {/* One photograph, committed to — not a bleached collage */}
+          <div className="relative hidden aspect-[5/4] overflow-hidden rounded-sm bg-paper-2 lg:block">
+            <Image
+              src={HERO.images[0].url}
+              alt={HERO.images[0].alt}
+              fill
+              sizes="45vw"
+              priority
+              className="object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-paper/55 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/40 to-transparent" />
+            <div className="absolute bottom-4 left-5 text-white">
+              <p className="font-display text-[19px] leading-none">{HERO.title}</p>
+              <p className="mt-1.5 text-[10.5px] uppercase tracking-[0.14em] text-white/80">
+                {HERO.locality}
+              </p>
             </div>
           </div>
         </div>
@@ -169,7 +177,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
         <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper to-transparent" />
           <div className="no-scrollbar flex gap-1.5 overflow-x-auto py-3">
-            {FEATURED_CATEGORIES.map((c) => {
+            {FEATURED_CATEGORIES.slice(0, 12).map((c) => {
               const on = cats.includes(c.name);
               return (
                 <button
@@ -182,9 +190,6 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
                   }`}
                 >
                   {c.name}
-                  <span className={`ml-1.5 text-[10px] ${on ? "text-paper/55" : "text-muted"}`}>
-                    {c.count}
-                  </span>
                 </button>
               );
             })}

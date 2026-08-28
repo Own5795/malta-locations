@@ -105,12 +105,12 @@ export default async function LocationPage({
 
       {/* Gallery — spans adapt to the image count so the grid never leaves a hole */}
       <section className="mx-auto mt-6 max-w-[1400px] px-5 sm:px-8">
-        <div className="grid gap-2 sm:grid-cols-4 sm:grid-rows-2">
+        <div className="grid gap-2 sm:h-[clamp(340px,38vw,520px)] sm:grid-cols-4 sm:grid-rows-2">
           {gallery.map((img, i) => (
             <div
               key={img.url}
               className={`relative overflow-hidden rounded-sm bg-paper-2 ${
-                i === 0 ? "aspect-[16/10] sm:aspect-auto" : "aspect-[4/3] sm:aspect-auto"
+                i === 0 ? "aspect-[16/10] sm:aspect-auto" : "aspect-[4/3] sm:h-full sm:aspect-auto"
               } ${gallerySpan(gallery.length, i)}`}
             >
               <Image
@@ -189,7 +189,7 @@ export default async function LocationPage({
             </Section>
 
             <Section title="Location">
-              <div className="h-[340px] overflow-hidden rounded-sm border border-line">
+              <div className="h-[300px] overflow-hidden rounded-sm border border-line">
                 <LocationMap locs={[loc]} className="h-full w-full" interactive={false} fit={false} />
               </div>
               <p className="mt-2 text-[11.5px] text-muted">

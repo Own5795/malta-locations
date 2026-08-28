@@ -37,7 +37,10 @@ export default function LocationMap({
         scrollWheelZoom: false,
         dragging: interactive,
         attributionControl: true,
-      }).setView([35.94, 14.37], 10);
+      }).setView(
+        locs.length === 1 ? [locs[0].lat, locs[0].lng] : [35.94, 14.37],
+        locs.length === 1 ? 14 : 10,
+      );
 
       // Keyless OSM tiles, muted in CSS to sit under the editorial palette.
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {

@@ -45,11 +45,6 @@ export default function LocationCard({
         <span className="absolute bottom-2.5 left-3 text-[10px] font-medium uppercase tracking-[0.14em] text-white/90">
           {loc.categories.slice(0, 2).join(" · ")}
         </span>
-        {loc.images.length > 1 && (
-          <span className="absolute right-2.5 top-2.5 rounded-full bg-black/45 px-2 py-0.5 text-[10px] font-medium text-white/90 backdrop-blur-sm">
-            {loc.images.length} photos
-          </span>
-        )}
       </div>
 
       <div className="pt-3">
@@ -63,10 +58,11 @@ export default function LocationCard({
         </div>
         <p className="mt-0.5 text-[12px] text-muted">{loc.locality}</p>
         <p className="mt-2 text-[13px] leading-[1.5] text-ink-2">{loc.shortDescription}</p>
-        <p className="mt-2.5 flex items-center gap-1.5 text-[11px] text-muted">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent/60" />
-          {ACCESS_LABEL[loc.accessType]} · Filming conditions may apply
-        </p>
+        {loc.accessType !== "public" && (
+          <p className="mt-2.5 text-[11px] uppercase tracking-[0.1em] text-muted">
+            {ACCESS_LABEL[loc.accessType]}
+          </p>
+        )}
       </div>
     </Link>
   );
