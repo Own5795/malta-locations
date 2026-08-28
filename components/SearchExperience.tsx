@@ -83,7 +83,14 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
           <div className="grid h-full grid-cols-3 sm:grid-cols-5">
             {locations.slice(0, 5).map((l) => (
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={l.slug} src={l.images[0].url} alt="" className="h-full w-full object-cover" />
+              <img
+                key={l.slug}
+                src={l.images[0].url}
+                alt=""
+                loading="eager"
+                fetchPriority="low"
+                className="h-full w-full object-cover"
+              />
             ))}
           </div>
         </div>
@@ -136,7 +143,7 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
               </button>
             </div>
 
-            <div className="no-scrollbar mt-3 flex gap-1.5 overflow-x-auto pb-1">
+            <div className="no-scrollbar mt-3 flex gap-1.5 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible">
               <span className="shrink-0 py-1.5 text-[11px] uppercase tracking-[0.1em] text-muted">
                 Try
               </span>
@@ -159,7 +166,8 @@ export default function SearchExperience({ initialMap = false }: { initialMap?: 
 
       {/* ---------------- Category chips ---------------- */}
       <section className="border-b border-line bg-paper/60">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
+        <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper to-transparent" />
           <div className="no-scrollbar flex gap-1.5 overflow-x-auto py-3">
             {FEATURED_CATEGORIES.map((c) => {
               const on = cats.includes(c.name);

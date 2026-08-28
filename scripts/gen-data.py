@@ -8,6 +8,13 @@ for k in ['grand-harbour-industrial', 'gozo-farmhouse']:
     imgs.pop(k, None)
 imgs['maltese-countryside'] = [i for i in imgs['maltese-countryside'] if 'Pigeon' not in i['title']]
 
+# Extreme panoramas upscale into an unreadable blur inside a 4:3 gallery cell.
+# Drop them wherever the listing still keeps at least two usable images.
+for _k, _v in imgs.items():
+    _keep = [i for i in _v if i.get('ratio', 1.5) <= 2.4]
+    if len(_keep) >= 2:
+        imgs[_k] = _keep
+
 L = [
 {
  "slug":"dingli-cliffs","title":"Dingli Cliffs","locality":"Dingli","island":"malta",

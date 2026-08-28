@@ -39,8 +39,9 @@ export default function LocationMap({
         attributionControl: true,
       }).setView([35.94, 14.37], 10);
 
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-        attribution: "&copy; OpenStreetMap &copy; CARTO",
+      // Keyless OSM tiles, muted in CSS to sit under the editorial palette.
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
         maxZoom: 19,
       }).addTo(m);
 

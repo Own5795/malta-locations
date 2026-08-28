@@ -82,7 +82,6 @@ export const locations: Location[] = [
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Dingli_Cliffs_2009.JPG/1920px-Dingli_Cliffs_2009.JPG", alt: "Dingli Cliffs, Dingli", credit: "Felix König", license: "CC BY 3.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Sunset_in_Dingli.jpg/1920px-Sunset_in_Dingli.jpg", alt: "Dingli Cliffs, Dingli", credit: "CapturedMomentsAbbyPhotography", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Dingli_-_Fifla.jpg", alt: "Dingli Cliffs, Dingli", credit: "ERWEH", license: "CC BY-SA 3.0" },
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Panoramic_View_from_Dingli_Cliffs.jpg/1920px-Panoramic_View_from_Dingli_Cliffs.jpg", alt: "Dingli Cliffs, Dingli", credit: "Christian Formosa", license: "CC BY-SA 4.0" },
     ],
     featured: true,
   },
@@ -143,7 +142,6 @@ export const locations: Location[] = [
       droneNotes: "Restricted — adjacent to harbour operations, authorisation required",
     },
     images: [
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Fuerte_Ricasoli%2C_Kalkara%2C_isla_de_Malta%2C_Malta%2C_2021-08-25%2C_DD_200.jpg/1920px-Fuerte_Ricasoli%2C_Kalkara%2C_isla_de_Malta%2C_Malta%2C_2021-08-25%2C_DD_200.jpg", alt: "Fort Ricasoli, Kalkara", credit: "Diego Delso", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Fort_Ricasoli%2C_Kalkara%2C_Malta.01.jpg/1920px-Fort_Ricasoli%2C_Kalkara%2C_Malta.01.jpg", alt: "Fort Ricasoli, Kalkara", credit: "Nenea hartia", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Malta_-_Kalkara_-_Triq_Santu_Rokku_-_Fort_Ricasoli_01_ies.jpg/1920px-Malta_-_Kalkara_-_Triq_Santu_Rokku_-_Fort_Ricasoli_01_ies.jpg", alt: "Fort Ricasoli, Kalkara", credit: "Frank Vincentz", license: "CC BY-SA 3.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Malta_-_Kalkara_-_Triq_Santu_Rokku_-_Fort_Ricasoli_04_ies.jpg/1920px-Malta_-_Kalkara_-_Triq_Santu_Rokku_-_Fort_Ricasoli_04_ies.jpg", alt: "Fort Ricasoli, Kalkara", credit: "Frank Vincentz", license: "CC BY-SA 3.0" },
@@ -238,7 +236,6 @@ export const locations: Location[] = [
       droneNotes: "Open, but a protected area; authorisation required",
     },
     images: [
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Blue_Lagoon_Comino_20260622.jpg/1920px-Blue_Lagoon_Comino_20260622.jpg", alt: "Blue Lagoon, Comino, Comino", credit: "Hunor Péter", license: "CC0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Malta_-_Ghajnsielem_-_Comino_%2B_Large_Blue_Lagoon_Rock_%2B_Small_Blue_Lagoon_Rock_%2B_Cominotto_%2B_Blue_Lagoon_02_ies.jpg/1920px-Malta_-_Ghajnsielem_-_Comino_%2B_Large_Blue_Lagoon_Rock_%2B_Small_Blue_Lagoon_Rock_%2B_Cominotto_%2B_Blue_Lagoon_02_ies.jpg", alt: "Blue Lagoon, Comino, Comino", credit: "Frank Vincentz", license: "CC BY-SA 3.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Malta_-_Ghajnsielem_-_Comino_-_Blue_Lagoon_%28Comino%29_04_ies.jpg/1920px-Malta_-_Ghajnsielem_-_Comino_-_Blue_Lagoon_%28Comino%29_04_ies.jpg", alt: "Blue Lagoon, Comino, Comino", credit: "Frank Vincentz", license: "CC BY-SA 3.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Malta_-_Ghajnsielem_-_Comino_-_Blue_Lagoon_%28Comino%29_02_ies.jpg/1920px-Malta_-_Ghajnsielem_-_Comino_-_Blue_Lagoon_%28Comino%29_02_ies.jpg", alt: "Blue Lagoon, Comino, Comino", credit: "Frank Vincentz", license: "CC BY-SA 3.0" },
@@ -582,7 +579,6 @@ export const locations: Location[] = [
     images: [
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Grand_Harbour_-_Senglea.jpg/1920px-Grand_Harbour_-_Senglea.jpg", alt: "Senglea Point & Grand Harbour, Senglea (L-Isla)", credit: "MrPanyGoff", license: "CC BY-SA 3.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Malta_Senglea_2011-10-06_10-27-55.JPG/1920px-Malta_Senglea_2011-10-06_10-27-55.JPG", alt: "Senglea Point & Grand Harbour, Senglea (L-Isla)", credit: "Berthold Werner", license: "CC BY-SA 3.0" },
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Malta_-_Senglea_-_Triq_Is-Sirena_-_View_on_Grand_Harbour_%26_Fort_St_Angelo.jpg/1920px-Malta_-_Senglea_-_Triq_Is-Sirena_-_View_on_Grand_Harbour_%26_Fort_St_Angelo.jpg", alt: "Senglea Point & Grand Harbour, Senglea (L-Isla)", credit: "Txllxt TxllxT", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Senglea-04-Grand_Harbour-Schiff-1989-gje.jpg/1920px-Senglea-04-Grand_Harbour-Schiff-1989-gje.jpg", alt: "Senglea Point & Grand Harbour, Senglea (L-Isla)", credit: "Gerd Eichmann", license: "CC BY-SA 4.0" },
     ],
   },
@@ -612,7 +608,6 @@ export const locations: Location[] = [
     },
     images: [
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Ghajn_Tuffieha_Bay_%2880472p%292.jpg/1920px-Ghajn_Tuffieha_Bay_%2880472p%292.jpg", alt: "Għajn Tuffieħa Bay, Mġarr", credit: "Rhododendrites", license: "CC BY-SA 4.0" },
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Ghajn_Tuffieha_Bay_-_Mugiarro%2C_Malta_-_April_23%2C_2013_03.jpg/1920px-Ghajn_Tuffieha_Bay_-_Mugiarro%2C_Malta_-_April_23%2C_2013_03.jpg", alt: "Għajn Tuffieħa Bay, Mġarr", credit: "Giorgio Galeotti", license: "CC BY 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Malta_-_Mgarr_-_Ghajn_Tuffieha_Bay_%28Triq_Ghajn_Tuffieha%29_01_ies.jpg/1920px-Malta_-_Mgarr_-_Ghajn_Tuffieha_Bay_%28Triq_Ghajn_Tuffieha%29_01_ies.jpg", alt: "Għajn Tuffieħa Bay, Mġarr", credit: "Frank Vincentz", license: "CC BY-SA 3.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Ghajn_Tuffieha_Bay_%2880472p%29.jpg/1920px-Ghajn_Tuffieha_Bay_%2880472p%29.jpg", alt: "Għajn Tuffieħa Bay, Mġarr", credit: "Rhododendrites", license: "CC BY-SA 4.0" },
     ],
@@ -675,7 +670,6 @@ export const locations: Location[] = [
     images: [
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Ciudadela%2C_Victoria%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_22.jpg/1920px-Ciudadela%2C_Victoria%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_22.jpg", alt: "Cittadella, Victoria, Victoria (Rabat), Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Ciudadela%2C_Victoria%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_17.jpg/1920px-Ciudadela%2C_Victoria%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_17.jpg", alt: "Cittadella, Victoria, Victoria (Rabat), Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Ciudadela%2C_Victoria%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_23-29_PAN.jpg/1920px-Ciudadela%2C_Victoria%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_23-29_PAN.jpg", alt: "Cittadella, Victoria, Victoria (Rabat), Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Victoria_Gozo_2009.JPG/1920px-Victoria_Gozo_2009.JPG", alt: "Cittadella, Victoria, Victoria (Rabat), Gozo", credit: "Felix König", license: "CC BY 3.0" },
     ],
   },
@@ -706,7 +700,6 @@ export const locations: Location[] = [
     images: [
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Bah%C3%ADa_de_Xlendi%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_84.jpg/1920px-Bah%C3%ADa_de_Xlendi%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_84.jpg", alt: "Xlendi Bay, Xlendi, Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bah%C3%ADa_de_Xlendi%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_95-97_HDR.jpg/1920px-Bah%C3%ADa_de_Xlendi%2C_isla_de_Gozo%2C_Malta%2C_2021-08-22%2C_DD_95-97_HDR.jpg", alt: "Xlendi Bay, Xlendi, Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Xlendi_Bucht_Panorama.jpg/1920px-Xlendi_Bucht_Panorama.jpg", alt: "Xlendi Bay, Xlendi, Gozo", credit: "Wusel007", license: "CC BY-SA 3.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Xlendi_bay_at_sunset.jpg/1920px-Xlendi_bay_at_sunset.jpg", alt: "Xlendi Bay, Xlendi, Gozo", credit: "Wittylama", license: "CC BY-SA 4.0" },
     ],
   },
@@ -735,7 +728,6 @@ export const locations: Location[] = [
       droneNotes: "Enclosed valley; open coastal airspace beyond",
     },
     images: [
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Bah%C3%ADa_de_M%C4%A1arr_ix-Xini%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_43-46_PAN.jpg/1920px-Bah%C3%ADa_de_M%C4%A1arr_ix-Xini%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_43-46_PAN.jpg", alt: "Mġarr ix-Xini, Sannat, Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Bah%C3%ADa_de_M%C4%A1arr_ix-Xini%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_41.jpg/1920px-Bah%C3%ADa_de_M%C4%A1arr_ix-Xini%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_41.jpg", alt: "Mġarr ix-Xini, Sannat, Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bah%C3%ADa_de_M%C4%A1arr_ix-Xini%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_42.jpg/1920px-Bah%C3%ADa_de_M%C4%A1arr_ix-Xini%2C_isla_de_Gozo%2C_Malta%2C_2021-08-23%2C_DD_42.jpg", alt: "Mġarr ix-Xini, Sannat, Gozo", credit: "Diego Delso", license: "CC BY-SA 4.0" },
       { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Mgarr_ix-Xini%2C_Ghawdex.jpg/1920px-Mgarr_ix-Xini%2C_Ghawdex.jpg", alt: "Mġarr ix-Xini, Sannat, Gozo", credit: "RomanoPhileas", license: "CC BY-SA 4.0" },

@@ -57,6 +57,7 @@ export default async function LocationPage({
 
   const related = relatedTo(loc);
   const practical = Object.entries(loc.practical).filter(([, v]) => v);
+  const gallery = loc.images.slice(0, 5);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -102,21 +103,21 @@ export default async function LocationPage({
         </header>
       </div>
 
-      {/* Gallery */}
+      {/* Gallery — spans adapt to the image count so the grid never leaves a hole */}
       <section className="mx-auto mt-6 max-w-[1400px] px-5 sm:px-8">
         <div className="grid gap-2 sm:grid-cols-4 sm:grid-rows-2">
-          {loc.images.slice(0, 5).map((img, i) => (
+          {gallery.map((img, i) => (
             <div
               key={img.url}
               className={`relative overflow-hidden rounded-sm bg-paper-2 ${
-                i === 0 ? "aspect-[16/10] sm:col-span-2 sm:row-span-2 sm:aspect-auto" : "aspect-[4/3]"
-              }`}
+                i === 0 ? "aspect-[16/10] sm:aspect-auto" : "aspect-[4/3] sm:aspect-auto"
+              } ${gallerySpan(gallery.length, i)}`}
             >
               <Image
                 src={img.url}
                 alt={img.alt}
                 fill
-                sizes={i === 0 ? "(max-width:640px) 100vw, 50vw" : "25vw"}
+                sizes={i === 0 ? "(max-width:640px) 100vw, 50vw" : "(max-width:640px) 100vw, 33vw"}
                 className="object-cover"
                 priority={i === 0}
               />
@@ -274,6 +275,18 @@ export default async function LocationPage({
       </div>
     </>
   );
+}
+
+/**
+ * The gallery is a 4x2 grid: the hero takes four cells, the rest divide the
+ * remaining four. Without this, a listing with four images leaves an empty cell.
+ */
+function gallerySpan(total: number, i: number): string {
+  if (i === 0) return total === 1 ? "sm:col-span-4 sm:row-span-2" : "sm:col-span-2 sm:row-span-2";
+  if (total === 2) return "sm:col-span-2 sm:row-span-2";
+  if (total === 3) return "sm:col-span-2";
+  if (total === 4) return i === 1 ? "sm:col-span-2" : "";
+  return "";
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {

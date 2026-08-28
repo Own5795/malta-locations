@@ -26,6 +26,8 @@ body {
 
 /* Leaflet */
 .leaflet-container { background: #e8e2d8; font-family: var(--font-sans); }
+/* Mute the OSM basemap so markers and imagery stay the loudest thing on the page */
+.leaflet-tile-pane { filter: grayscale(0.92) brightness(1.06) contrast(0.9) sepia(0.14); }
 .leaflet-control-attribution { font-size: 9px; background: rgba(247,244,239,.8) !important; }
 .leaflet-popup-content-wrapper { border-radius: 2px; box-shadow: 0 8px 30px rgba(0,0,0,.15); padding: 0; }
 .leaflet-popup-content { margin: 0; width: 220px !important; }
